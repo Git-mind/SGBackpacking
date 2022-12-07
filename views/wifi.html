@@ -1,0 +1,647 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags always come first-->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Base CSS and font family -->
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+        integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+
+    <!-- Font-Awesome -->
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
+        integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
+
+    <!-- ICON NEEDS FONT AWESOME FOR CHEVRON UP ICON -->
+    <link href="//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css" rel="stylesheet">
+
+    <!-- Stylesheet for wifi page  -->
+    <link rel="stylesheet" type="text/css" href="../css/wifi.css" />
+
+    <title>SG Backpacking | Wi-Fi guide</title>
+
+    <style>
+        * {
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        .card-text a {
+            color: #00B894 !important;
+            text-decoration: none;
+        }
+
+        .card {
+            height: 100%;
+        }
+    </style>
+
+</head>
+
+
+<body>
+
+    <nav class="navbar navbar-expand-lg sticky-top navbar-fixed-top py-0 px-3"
+        style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, .12), 0 2px 4px 0 rgba(0, 0, 0, .08); display: flex; flex-direction: row; justify-content: space-between; background-color: darkslategray; position: sticky;">
+        <a class="navbar-brand" href="#"><img src="../img/icons/logo-grey.JPG" width="300" id="logo"
+                style="border-radius: 10%; height: auto; width: 200px;"></a>
+
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"
+            style="background-color: #2f4f4f;">
+            <i class="fas fa-bars" style="color: #A6A6A6"></i>
+        </button>
+
+        <div class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-2">
+                <li class="nav-item dropdown" style="margin: 20px;">
+                    <a class="nav-link" href="places.html" style="color: #D9D9D9;">
+                        Places to Visit
+                    </a>
+                </li>
+
+                <li class="nav-item dropdown" style="margin: 20px;">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="color: #D9D9D9;">
+                        Communication and Travel
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown"
+                        style="background-color: darkslategrey;">
+                        <a class="dropdown-item" href="accommodation.html" style="color: #D9D9D9;">Accommodation</a>
+                        <a class="dropdown-item" href="transport.html" style="color: #D9D9D9;">Transportation</a>
+                        <a class="dropdown-item" href="wifi.html" style="color: #D9D9D9;">WiFi and SIM cards</a>
+                    </div>
+                </li>
+
+                <li class="nav-item dropdown" style="margin: 20px;">
+                    <a class="nav-link" href="favourites.html" style="color: #D9D9D9;">
+                        Favourites
+                    </a>
+                </li>
+
+                <li class="nav-item" style="margin: 20px;">
+                    <!-- Add vue v-if here to display login or logout depending whether on user-->
+                    <a class="nav-link" href="places.html" style="color: #D9D9D9; cursor: pointer;"
+                        onclick="clickEvent()" id='logInStuff'>
+                        Login
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="container-fluid main">
+        <!--To Top-->
+        <a onclick="topFunction()" href="javascript:" id="return-to-top"><i class="icon-chevron-up"></i></a>
+
+        <div class="row mt-5">
+            <div class="col-12">
+                <h4 class="text-center" style="font-weight: bold; color: #2F4F4F;">Select the following categories</h4>
+            </div>
+            <!-- <div class="col-12 d-flex flex-row justify-content-center my-5"> -->
+            <div class="row my-5 mx-5">
+                <div class="card-group">
+                    <div class="col-4">
+                        <div class="card">
+                            <img class="card-img-top" src="../img/wifi/Singtel hi!Tourist EZ-Link SIM Card.png"
+                                alt="Card image cap">
+                            <div class="card-body">
+                                <h4 class="card-text text-center"><a href="#simcardInfo" class="stretched-link">
+                                        SIMCARD
+                                    </a></h4>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-4">
+                        <div class="card">
+                            <img class="card-img-top" src="../img/wifi/pocket.jpg" alt="Card image cap">
+                            <div class="card-body">
+                                <h4 class="card-text text-center"><a href="#pocketWifiInfo" class="stretched-link">
+                                        Pocket WiFi
+                                    </a></h4>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-4">
+                        <div class="card">
+                            <img class="card-img-top" src="../img/wifi/public wifi.jpg" alt="Card image cap">
+                            <div class="card-body">
+                                <h4 class="card-text text-center"><a href="#publicWifiInfo" class="stretched-link">
+                                        Public WiFi
+                                    </a></h4>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row border-bottom mx-5"></div>
+
+        <div class="row mt-5">
+            <div class="col-12">
+                <h4 class="text-center" style="font-weight: bold; color: #2F4F4F;">SIM Card Information</h4>
+            </div>
+            <!-- <div class="col-12 d-flex flex-row justify-content-center my-5"> -->
+            <div class="row my-5 mx-5">
+                <div class="card-group">
+                    <div class="col-4">
+                        <div class="card">
+                            <img class="card-img-top" src="../img/wifi/m1 singtel starhub.png" alt="Card image cap">
+                            <div class="card-body">
+                                <p class="card-text font-weight-bold">
+                                    If you wish to continue making calls and sending messages on your mobile phone, a
+                                    good
+                                    option will be to
+                                    purchase a Singapore prepaid SIM card. Veteran local telcos—like M1, Singtel
+                                    <span id="dots1">...</span>
+                                    <span id="more1"> and Starhub—offer a wide variety of packages, so take a little
+                                        time to
+                                        decide which plan
+                                        best suits your needs.</span>
+                                </p>
+                                <a class="button" style="cursor: pointer;color:#00B894" onclick="display(this)"
+                                    id="read1">Read
+                                    more</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-4">
+                        <div class="card">
+                            <img class="card-img-top" src="../img/wifi/internationalcall.png" alt="Card image cap">
+                            <div class="card-body">
+                                <p class="card-text font-weight-bold">You can choose from bundles that cover local and
+                                    international calls,
+                                    SMSes and varying amounts of local mobile data. Durations typically range from five
+                                    to 30 or
+                                    more days.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-4">
+                        <div class="card">
+                            <img class="card-img-top" src="../img/wifi/internationalcall.png" alt="Card image cap">
+                            <div class="card-body">
+                                <p class="card-text font-weight-bold">Prepaid SIM cards are easily purchased at the
+                                    telcos’
+                                    retail counters
+                                    and islandwide convenience stores like 7-Eleven and Cheers, as well as at Singapore
+                                    Changi
+                                    Airport’s many
+                                    Changi
+                                    <span id="dots2">...</span>
+                                    <span id="more2">Recommends booths and telco retail counters.You will have to
+                                        produce your
+                                        passport for
+                                        registration when purchasing a prepaid SIM card.</span>
+                                </p>
+                                <a class="button" style="cursor: pointer;color:#00B894" onclick="display(this)"
+                                    id="read2">Read
+                                    more</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="accordion" class="mx-5">
+            <div class="card">
+                <div class="card-header" id="headingOne">
+                    <h5 class="mb-0">
+                        <button class="btn btn-link" data-toggle="collapse" data-target="#comparesim"
+                            aria-expanded="false" aria-controls="comparesim" style="color: #2F4F4F;">
+                            Compare SIM Cards<i class="fas fa-arrow-circle-down ml-3 my-auto"
+                                style="font-size: 24px;"></i>
+                        </button>
+                    </h5>
+                </div>
+
+                <div id="comparesim" class="collapse" aria-labelledby="headingOne" data-parent="#accordion">
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-12">
+                                <div id="comparison" class="tabs_wrap mx-auto p-auto">
+                                    <ul class="mx-auto">
+                                        <li id="sevendays" onclick="show(this)">7 days</li>
+                                        <li id="twelvedays" onclick="show(this)">12 days
+                                        </li>
+                                        <li id="fourteendays" onclick="show(this)">14 days</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="col-12">
+                                <div id="reminder" style="text-align:center;color: red;margin-bottom: 1000px;">
+                                    <h4>Please Select Travel Duration</h4>
+                                </div>
+                            </div>
+
+                            <div class="col-12">
+                                <!--show info -->
+                                <div id="results"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row border-bottom mx-5 my-5"></div>
+
+        <div class="row mt-5">
+            <div class="col-12" id="pocketWifiInfo">
+                <h4 class="text-center" style="font-weight: bold; color: #2F4F4F;">Pocket Wi-Fi Information</h4>
+            </div>
+            <!-- <div class="col-12 d-flex flex-row justify-content-center my-5"> -->
+            <div class="row my-5 mx-auto" style="width: 80%;">
+                <div class="card-group">
+                    <div class="col-12 col-md-6 my-5">
+                        <div class="card">
+                            <img class="card-img-top" src="../img/wifi/Devices-connected-to-wifi.png"
+                                alt="Card image cap">
+                            <div class="card-body">
+                                <p class="card-text font-weight-bold">
+                                    Are you someone who needs uses mobile data excessively a day? Or do you carry a few
+                                    devices,
+                                    desire WiFi
+                                    connectivity and do not intend to make many phone calls. Fret not, we got you
+                                    <span id="dots3">...</span>
+                                    <span id="more3">covered. With Pocket wifi, you can continue to do that without
+                                        worrying
+                                        about running out
+                                        of data or slow internet connections.</span>
+                                </p>
+                                <a class="button" style='cursor: pointer;color:blue' onclick="display(this)"
+                                    id="read3">Read
+                                    more</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12 col-md-6 my-5">
+                        <div class="card">
+                            <img class="card-img-top" src="../img/wifi/666cbe6277a36711cef35d8fb23d7b3e.jpg"
+                                alt="Card image cap">
+                            <div class="card-body">
+                                <h5 class="card-title">Changi Recommends Pocket wifi</h5>
+                                <p class="card-text font-weight-bold">With 24 hours customer care on hotline &amp;
+                                    Whatsapp, it is
+                                    one of the
+                                    top
+                                    Pocket Wifi providers in Singapore.</p>
+                                <a href="https://y5buddy.sg/" class="btn  btn-outline-primary" target="_blank">To
+                                    website</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-12 col-md-6 my-5">
+                        <div class="card">
+                            <img class="card-img-top" src="../img/wifi/download.jpg" alt="Card image cap">
+                            <div class="card-body">
+                                <h5 class="card-title">Y5Buddy</h5>
+                                <br>
+                                <p class="card-text font-weight-bold">Y5Buddy offers travelers with unlimited data
+                                    roaming
+                                    provided at a low
+                                    daily fixed rate, no hidden cost.</p>
+                                <a href="https://y5buddy.sg/" class="btn  btn-outline-primary" target="_blank">To
+                                    website</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12 col-md-6 my-5">
+                        <div class="card">
+                            <img class="card-img-top" src="../img/wifi/download.png" alt="Card image cap">
+                            <div class="card-body">
+                                <h5 class="card-title">Rentafi</h5>
+                                <br>
+                                <p class="card-text font-weight-bold">With a long and proven track record since 2012,
+                                    Rentafi is
+                                    the go-to
+                                    provider for Temporary WiFi solutions.</p>
+                                <a href="https://y5buddy.sg/" class="btn  btn-outline-primary" target="_blank">To
+                                    website</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row border-bottom mx-5"></div>
+
+        <div class="row mb-5">
+            <div class="col-12 my-5">
+                <h4 class="text-center" style="font-weight: bold; color: #2F4F4F;">Public Wi-Fi Information</h4>
+            </div>
+            <div class="row" style="width:80%;margin:auto">
+                <div class="col-1"></div>
+                <div class="col-4">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title">
+                                <p>Free Public Wi-Fi</p>
+                            </h5>
+                            <hr>
+
+                            <b>Wireless@SG</b>
+                            <p>This is a free public WiFi service across Singapore, with hotspots available at many
+                                locations, from
+                                malls
+                                and museums, to MRT stations and public libraries.</p>
+
+                            <p>An updated list of hotspot coverage is available <a
+                                    href="https://www.imda.gov.sg/programme-listing/Wireless-At-SG"
+                                    target="_blank">here</a>
+                                You can also
+                                look
+                                out for the Wireless@SG decal on display wherever this network is available, as well as
+                                the
+                                SSID
+                                Wireless@SG
+                                on your device.</p>
+                            <span id="dots4">...</span>
+                            <span id="more4">
+                                <div class="inner">
+                                    <img style="width: 50%;" src="../img/wifi/public wifi.jpg">
+                                </div>
+                                <br>
+                                <p>To get connected, register for an account with your foreign mobile number at any
+                                    Wireless@SG hotspot.
+                                    You’ll receive your login details via an SMS message. Do note that overseas charges
+                                    may
+                                    apply.</p>
+                            </span>
+                            <a class="button" style='cursor: pointer;color:blue' onclick="display(this)" id="read4">Read
+                                more</a>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="col-6">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title">
+                                <p>Where to find Public Wifi?</p>
+                            </h5>
+                            <hr>
+                            <p>WiFi hotspots are also widely available at various public areas and businesses across the
+                                island. Here
+                                are
+                                some options.</p>
+                            <div class="row">
+                                <div class="col-6">
+                                    <div class="inner">
+                                        <img style="width: 100%;" src="../img/wifi/mrtstation.jpg">
+                                    </div>
+                                    <h4 style="text-align: center;"> MRT STATIONS</h4>
+                                </div>
+                                <div class="col-6">
+                                    <div class="inner">
+                                        <img style="width: 100%; height: 87%;"
+                                            src="../img/wifi/shoppingcentre_collage2.jpg">
+                                    </div>
+                                    <h4 style="text-align: center;"> Shopping Centres</h4>
+                                </div>
+                            </div>
+
+
+                        </div>
+
+                    </div>
+                </div>
+
+                <div class="col-1"></div>
+
+            </div>
+        </div>
+
+        <div id="starhubTopUp" class="card">
+            <!--starhub top up - pop up-->
+            <button style="float: right;" type="button" class="btn btn-danger" onclick="closeStarhub()">CLOSE
+                [X]</button>
+            <br>
+            <br>
+            <h3 class="text-center">Topping up a Starhub Travel simcard is Easy! </h3>
+            <hr>
+            <ol>
+                <li>
+                    <h4>Enter your phone number</h4>
+                </li>
+                <img src="../img/wifi/topupstarhub.png" style="width: 95%">
+                <br>
+                <br>
+                <li>
+                    <h4>Make payment</h4>
+                </li>
+            </ol>
+            <a class="btn btn-success" style="margin-left: 30%;"
+                href="https://topup.starhub.com/starhub-onlinetopup/web/verify.htm" target="_blank">Proceed to StarHub's
+                Website
+                to Top Up!</a>
+
+        </div>
+
+
+        <div id="singtelTopUp" class="card">
+            <!--singtel top up - pop up-->
+            <button style="float: right;" type="button" class="btn btn-danger" onclick="closeSingtel()">CLOSE
+                [X]</button>
+            <br>
+            <br>
+            <h3 class="text-center">Topping up a Singtel hi!Tourist SIM Card </h3>
+            <hr>
+            <img src="../img/wifi/hiApp.png" style="width: 40%; margin-left: 30%;">
+            <br>
+            <br>
+            <p class="text-center"><b>Download the hi!App to extend SIM card validity</b></p>
+
+            <a class="btn btn-info" style="margin-left: 15px;"
+                href="https://play.google.com/store/apps/details?id=com.singtel.hiaccount&hl=en_SG&gl=US"
+                target="_blank">Download
+                for Andriod</a>
+            <a class="btn btn-info" href="https://apps.apple.com/sg/app/singtel-prepaid-hi-app/id1034712778"
+                target="_blank">Download for IOS</a>
+        </div>
+
+        <div id="M1TopUp" class="card">
+            <!--m1 top up - pop up-->
+            <button style="float: right;" type="button" class="btn btn-danger" onclick="closeM1()">CLOSE [X]</button>
+            <br>
+            <br>
+            <h3 class="text-center">Topping up a M1 Tourist SIM Card </h3>
+            <hr>
+            <img src="../img/wifi/m1topup.png" style="width: 40%; margin-left: 30%;">
+            <br>
+            <br>
+            <p class="text-center"><b>Simply top up via M1 Prepaid App or Portal!</b></p>
+
+            <a class="btn btn-info" style="margin-left: 15px;"
+                href="https://play.google.com/store/apps/details?id=hms.custom.m1.prepaidPortal&hl=en_SG&gl=US"
+                target="_blank">Download for Andriod</a>
+            <a class="btn btn-info" href="https://apps.apple.com/sg/app/m1-prepaid/id1312731685"
+                target="_blank">Download for
+                IOS</a>
+            <a class="btn btn-success" style="margin-left: 38%;margin-top: 10px;"
+                href="https://mcardaccount.m1.com.sg/login" target="_blank">M1 Portal</a>
+        </div>
+
+
+
+        <div id="starhublocation" class="card">
+            <!--starhub where to buy - pop up-->
+            <button style="float: right;" type="button" class="btn btn-danger" onclick="exitStarHub()">CLOSE
+                [X]</button>
+            <br>
+            <br>
+            <h3 class="text-center">Where to buy Starhub Travel Simcard? </h3>
+            <hr>
+
+            <ul>
+                <li>StarHub Shops</li>
+                <li>StarHub Authorised Retailers</li>
+                <li>7-Eleven & Cheers convenience stores</li>
+                <li>Changi Airport (Terminal 1, 2, 3 and 4)</li>
+                <ul>
+                    <li>StarHub Counters (Arrival Halls)</li>
+                    <li>Travellers Counters (Arrival Halls)</li>
+                    <li>UOB Currency Exchange Counters</li>
+                </ul>
+                <li><a href="https://topup.starhub.com/preorder/tourist/" target="_blank">Pre-order</a> online</li>
+            </ul>
+
+        </div>
+
+        <div id="singtellocation" class="card">
+            <!--singtel where to buy - pop up-->
+            <button style="float: right;" type="button" class="btn btn-danger" onclick="exitSingtel()">CLOSE
+                [X]</button>
+            <br>
+            <br>
+            <h3 class="text-center">Where to buy hi!Tourist SIM? </h3>
+            <hr>
+
+            <ul>
+                <li>Singtel Shops</li>
+                <li>Singtel Exclusive Retailers</li>
+                <li>7-Eleven & Cheers convenience stores</li>
+                <li>Changi Airport (Terminal 1, 2, 3 and 4)</li>
+            </ul>
+
+        </div>
+
+        <div id="m1location" class="card">
+            <!--m1 where to buy - pop up-->
+            <button style="float: right;" type="button" class="btn btn-danger" onclick="exitM1()">CLOSE [X]</button>
+            <br>
+            <br>
+            <h3 class="text-center">Where to buy M1 Tourist SIM? </h3>
+            <hr>
+
+            <ul>
+                <li>M1 Shops ($12/$30 Tourist SIM)</li>
+                <li>M1 Exclusive Distributors ($12/$30 Tourist SIM)</li>
+                <li>Selected 7-Eleven & Cheers ($12/$30 Tourist SIM)</li>
+                <li>Changi Meet & Greet ($30/$50 Tourist SIM)</li>
+                <li>Changi Recommends (Terminal 1, 2 & 4 Arrival Hall)</li>
+            </ul>
+
+        </div>
+
+    </div>
+
+    <!-- MODAL  -->
+
+    <div class="wrapper">
+        <div id="popUp" class="popUp popup_hide">
+            <div class="popUp-content shadow">
+                <!-- <span class="close">&times;</span> -->
+                <!-- <p>Успей заказать! Только сегодня -  скидка 15%!</p> -->
+                <img src="https://www.epayment.com.ng/images/blog-wp-login-1200x400.png" alt="" class="popUp-img">
+                <p>Please login via Google to use SG Backpacking</p>
+                <button onclick="clickEventM()" class='login-modal-btn'
+                    onclick='this.blur()'><span>Login</span></button>
+
+            </div>
+        </div>
+    </div>
+
+    <div class="container-fluid" style="background-color: #2F4F4F !important; color: #A6A6A6;">
+        <div class="row">
+            <div class="d-flex flex-column align-items-center justify-content-center w-100">
+                <p class="pt-2 mb-1">Connect With Us:</p>
+                <div class="d-flex flex-row mb-3">
+                    <a href="https://www.facebook.com/" class="mx-1"><img src="../img/base/facebook-3-xl.png"
+                            width="30"></a>
+                    <a href="https://www.instagram.com/" class="mx-1"><img src="../img/base/instagram-xl.png"
+                            width="30"></a>
+                    <a href="https://twitter.com/" class="mx-1"><img src="../img/base/twitter-3-xl.png" width="30"></a>
+                </div>
+                <p>Backpackers INC</p>
+                <p style="font-size: 13px;">21 Something Street Unit #01-01 S552069</p>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous">
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous">
+    </script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"
+        integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous">
+    </script>
+
+    <!-- CREATING CONNECTION -->
+    <!-- The core Firebase JS SDK is always required and must be listed first -->
+    <script src="https://www.gstatic.com/firebasejs/8.0.0/firebase-app.js"></script>
+
+    <!-- DATABASE SDK -->
+    <script src="https://www.gstatic.com/firebasejs/8.0.0/firebase-database.js"></script>
+    <!-- AUTHENTICATION SDK  -->
+    <script src="https://www.gstatic.com/firebasejs/8.0.0/firebase-auth.js"></script>
+
+    <script type="text/javascript" src="../js/wifi.js"></script>
+
+
+
+    <script>
+        $(document).ready(function () {
+            var scroll_start = 0;
+            var startchange = $('.main');
+            var offset = startchange.offset();
+            if (startchange.length) {
+                $(document).scroll(function () {
+                    scroll_start = $(this).scrollTop();
+                    if (scroll_start > offset.top) {
+                        $(".navbar").css('background-color', 'white');
+                        $("#logo").attr('src', '../img/icons/logo-white.jpg')
+                        $(".nav-link").css('color', '#2F4F4F')
+                        $(".dropdown-menu").css('background-color', 'white')
+                        $(".dropdown-item").css('color', '#2F4F4F')
+                        $("label").css('color', '#2F4F4F')
+                        $(".navbar-toggler").css('background-color', 'white')
+                    } else {
+                        $('.navbar').css('background-color', '#2F4F4F');
+                        $("#logo").attr('src', '../img/icons/logo-grey.jpg')
+                        $(".nav-link").css('color', '#D9D9D9')
+                        $(".dropdown-menu").css('background-color', '#2F4F4F')
+                        $(".dropdown-item").css('color', '#D9D9D9')
+                        $("label").css('color', '#D9D9D9')
+                        $(".navbar-toggler").css('background-color', '#2F4F4F')
+                    }
+                });
+            }
+        });
+    </script>
+
+</body>
+
+</html>

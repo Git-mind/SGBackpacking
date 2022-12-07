@@ -1,0 +1,248 @@
+/* smooth scroll */
+html {
+  scroll-behavior: smooth;
+}
+
+/* tabs */
+.tabs_wrap {
+  padding: 20px;
+
+
+}
+
+.tabs_wrap ul {
+  display: flex;
+  justify-content: center;
+  list-style-type: none;
+
+}
+
+.tabs_wrap ul li {
+  width: 160px;
+  text-align: center;
+  background: #e9ecf1;
+  padding: 13px 15px;
+  border-radius: 1px solid #c1c4c9;
+  transition: all 0.5s ease;
+  cursor: pointer;
+  font-size: 1rem;
+  font-weight: bold;
+  color: #2F4F4F;
+
+}
+
+.tabs_wrap ul li:first-child {
+  border-top-left-radius: 25px;
+  border-bottom-left-radius: 25px;
+}
+
+.tabs_wrap ul li:last-child {
+  border-top-right-radius: 25px;
+  border-bottom-right-radius: 25px;
+  border-right: 0;
+}
+
+.tabs_wrap ul li:hover,
+.tabs_wrap ul li.active {
+  font-size: 1rem;
+  font-weight: bold;
+  background: #00b894;
+  color: white;
+
+}
+
+
+
+
+
+#info {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+#starhubsim1 {
+  height: 200px;
+  width: 350px;
+}
+
+#singtelsim1 {
+  height: 200px;
+  width: 350px;
+}
+
+#m1sim1 {
+  height: 200px;
+  width: 350px;
+}
+
+
+
+#starhubTopUp {
+  display: none;
+  position: fixed;
+  z-index: 9;
+  height: 500px;
+  width: 900px;
+  background-color: white;
+  position: fixed;
+  top: 25%;
+  left: 25%;
+
+}
+
+#singtelTopUp {
+  display: none;
+  position: fixed;
+  z-index: 9;
+  height: 450px;
+  width: 400px;
+  background-color: white;
+  position: fixed;
+  top: 25%;
+  left: 37%;
+
+}
+
+#M1TopUp {
+  display: none;
+  position: fixed;
+  z-index: 9;
+  height: 500px;
+  width: 400px;
+  background-color: white;
+  position: fixed;
+  top: 25%;
+  left: 37%;
+}
+
+#starhublocation {
+  display: none;
+  position: fixed;
+  z-index: 9;
+  height: 400px;
+  width: 400px;
+  background-color: white;
+  position: fixed;
+  top: 25%;
+  left: 37%;
+  font-weight: bold;
+
+}
+
+#singtellocation {
+  display: none;
+  position: fixed;
+  z-index: 9;
+  height: 250px;
+  width: 400px;
+  background-color: white;
+  position: fixed;
+  top: 25%;
+  left: 37%;
+  font-weight: bold;
+
+}
+
+#m1location {
+  display: none;
+  position: fixed;
+  z-index: 9;
+  height: 300px;
+  width: 450px;
+  background-color: white;
+  position: fixed;
+  top: 25%;
+  left: 37%;
+  font-weight: bold;
+}
+
+
+body {
+  font-family: 'Montserrat', sans-serif;
+
+}
+
+#more1,
+#more2,
+#more3,
+#more4 {
+  display: none;
+}
+
+
+#simcardInfo,
+#pocketWifiInfo,
+#publicWifiInfo {
+  color: white;
+  text-align: center;
+  width: 50%;
+  margin: auto;
+  padding: 5px 0px;
+}
+
+.inner {
+  overflow: hidden;
+}
+
+.inner img {
+  transition: all 1.5s ease;
+}
+
+.inner:hover img {
+  transform: scale(1.1);
+
+}
+
+#simcardBtn {
+  max-width: 800px;
+}
+
+#simcardPic {
+  width: 100%
+}
+
+/* return-to-top button */
+#return-to-top {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background: rgb(0, 0, 0);
+  background: rgba(0, 0, 0, 0.7);
+  width: 50px;
+  height: 50px;
+  display: block;
+  text-decoration: none;
+  -webkit-border-radius: 35px;
+  -moz-border-radius: 35px;
+  border-radius: 35px;
+  display: none;
+  -webkit-transition: all 0.3s linear;
+  -moz-transition: all 0.3s ease;
+  -ms-transition: all 0.3s ease;
+  -o-transition: all 0.3s ease;
+  transition: all 0.3s ease;
+  z-index: 1000;
+}
+
+#return-to-top i {
+  color: #fff;
+  margin: 0;
+  position: relative;
+  left: 16px;
+  top: 13px;
+  font-size: 19px;
+  -webkit-transition: all 0.3s ease;
+  -moz-transition: all 0.3s ease;
+  -ms-transition: all 0.3s ease;
+  -o-transition: all 0.3s ease;
+  transition: all 0.3s ease;
+}
+
+#return-to-top:hover {
+  background: rgba(0, 0, 0, 0.9);
+}
+
+#return-to-top:hover i {
+  color: #fff;
+  top: 5px;
+}

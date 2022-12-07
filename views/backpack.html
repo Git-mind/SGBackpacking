@@ -1,0 +1,753 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>Singapore backpacking resource</title>
+
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+        integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+
+    <!--CSS-->
+    <link rel="stylesheet" href="../css/backpack2.css">
+
+    <!--GOOGLE FONT-->
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
+
+
+    <!-- Vue, axios -->
+
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+
+    <!-- External libraries-->
+    <script src="https://kit.fontawesome.com/b3b9a26539.js" crossorigin="anonymous"></script>
+
+    <!-- The core Firebase JS SDK is always required and must be listed first -->
+    <script src="https://www.gstatic.com/firebasejs/8.0.1/firebase-app.js"></script>
+
+    <!-- TODO: Add SDKs for Firebase products that you want to use
+     https://firebase.google.com/docs/web/setup#available-libraries -->
+    <script src="https://www.gstatic.com/firebasejs/8.0.1/firebase-analytics.js"></script>
+
+    <style>
+        /* modal css */
+        * {
+            line-height: 1.5em;
+        }
+
+        .wrapper {
+            width: 80%;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .title {
+            margin-bottom: 0.8em;
+        }
+
+        .content {
+            width: 70%;
+            font-size: 0.8em;
+            margin-bottom: 3em;
+        }
+
+        .button-popup {
+            text-decoration: none;
+            padding: 1em 4em;
+            border: 1px solid black;
+            color: black;
+        }
+
+        .button-popup:hover {
+            text-decoration: none;
+            padding: 1em 4em;
+            border: 1px solid black;
+            background-color: rgba(74, 74, 74, 0.6);
+            color: white;
+        }
+
+        .popUp {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: fixed;
+            z-index: 1;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 100%;
+            height: 100%;
+
+            overflow: auto;
+            background-color: rgb(0, 0, 0);
+            background-color: rgba(0, 0, 0, 0.4);
+        }
+
+        .popup_hide {
+            display: none;
+        }
+
+        .popUp-content {
+            padding: 1em;
+            background-color: #fefefe;
+            /* border: 0.2em solid #8c8c8c; */
+            box-sizing: border-box;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 200px;
+            height: 200px;
+            border-radius: 5%;
+
+        }
+
+        .popUp-content p {
+            text-align: center;
+        }
+
+        .popUp-img {
+            width: 100%;
+        }
+
+        @media (max-width: 768px) {
+            .popUp-content {
+                width: 85vw;
+            }
+        }
+
+        .close {
+            color: #9e9e9e;
+            align-self: flex-end;
+            font-size: 1.75em;
+            font-weight: 700;
+        }
+
+        .close:hover,
+        .close:focus {
+            color: black;
+            text-decoration: none;
+            cursor: pointer;
+        }
+
+        .call-back {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: flex-end;
+            margin-top: 1em;
+            max-width: 70vw;
+        }
+
+
+
+        /* 
+login modal button */
+        .login-modal-btn {
+            /* border-radius: 4px; */
+            /* background-color: #385e5e; */
+            border: none;
+            color: #2f4f4e;
+            background-color: white;
+            text-align: center;
+            font-size: 28px;
+            /* padding: 20px; */
+            width: 100%;
+            transition: all 0.5s;
+            cursor: pointer;
+            /* margin: 5px; */
+
+        }
+
+        .login-modal-btn:focus {
+            outline: none
+        }
+
+
+        .login-modal-btn span {
+            cursor: pointer;
+            display: inline-block;
+            position: relative;
+            transition: 0.5s;
+        }
+
+        .login-modal-btn span:after {
+            content: '\00bb';
+            position: absolute;
+            opacity: 0;
+            top: 0;
+            right: -20px;
+            transition: 0.5s;
+        }
+
+        .login-modal-btn:hover span {
+            padding-right: 25px;
+            color: #ff5352
+        }
+
+        .login-modal-btn:hover span:after {
+            opacity: 1;
+            right: 0;
+            color: #ff5352
+        }
+    </style>
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg sticky-top navbar-fixed-top py-0 px-3"
+        style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, .12), 0 2px 4px 0 rgba(0, 0, 0, .08); display: flex; flex-direction: row; justify-content: space-between; background-color: darkslategray; position: sticky;">
+        <a class="navbar-brand" href="../index.html"><img src="../img/icons/logo-grey.JPG" width="300" id="logo"
+                style="border-radius: 10%; height: auto; width: 200px;"></a>
+
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"
+            style="background-color: #2f4f4f;">
+            <i class="fas fa-bars" style="color: #A6A6A6"></i>
+        </button>
+
+        <div class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-2" style="height: 100px; overflow: hidden;">
+                <li class="nav-item dropdown" style="margin: 20px;">
+                    <a class="nav-link" href="places.html" style="color: #D9D9D9;">
+                        Places to Visit
+                    </a>
+                </li>
+
+                <li class="nav-item dropdown" style="margin: 20px;">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="color: #D9D9D9;">
+                        Communication and Travel
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown"
+                        style="background-color: darkslategrey;">
+                        <a class="dropdown-item" href="accommodation.html" style="color: #D9D9D9;">Accommodation</a>
+                        <a class="dropdown-item" href="transport.html" style="color: #D9D9D9;">Transportation</a>
+                        <a class="dropdown-item" href="wifi.html" style="color: #D9D9D9;">WiFi and SIM cards</a>
+                    </div>
+                </li>
+
+                <li class="nav-item dropdown" style="margin: 20px;">
+                    <a class="nav-link" href="favourites.html" style="color: #D9D9D9;">
+                        Favourites
+                    </a>
+                </li>
+
+                <li class="nav-item" style="margin: 20px;">
+                    <!-- Add vue v-if here to display login or logout depending whether on user-->
+                    <a class="nav-link" href="#" style="color: #D9D9D9; cursor: pointer;" onclick="clickEvent()"
+                        id='logInStuff'>
+                        Login
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="container-fluid px-5 main">
+        <div class="row">
+            <h3 class="ml-3 mb-4 mt-4">Explore new places</h3>
+        </div>
+        <div class="row h-100">
+            <!-- Map -->
+            <div class="map-div col-12 col-sm-8 order-1 order-sm-2">
+                <div id="map"></div>
+            </div>
+            <!-- Explore -->
+            <div class="col-12 col-sm-4 order-2 order-sm-1 explore-div w-100 h-100">
+                <!-- Places for selection to show on the map -->
+                <ul class="px-0 flex d-lg-block w-100 mb-0" role="menu" id="placesDiv">
+                </ul>
+            </div>
+        </div>
+    </div>
+
+
+
+    <!-- Styling for pop out when card is clicked -->
+    <div id="details"></div>
+
+    <!-- Footer -->
+    <div class="container-fluid" style="background-color: #2F4F4F !important; color: #A6A6A6;">
+        <div class="row">
+            <div class="d-flex flex-column align-items-center justify-content-center w-100">
+                <p class="pt-2 mb-1">Connect With Us:</p>
+                <div class="d-flex flex-row mb-3">
+                    <a href="https://www.facebook.com/" class="mx-1"><img src="../img/base/facebook-3-xl.png"
+                            width="30"></a>
+                    <a href="https://www.instagram.com/" class="mx-1"><img src="../img/base/instagram-xl.png"
+                            width="30"></a>
+                    <a href="https://twitter.com/" class="mx-1"><img src="../img/base/twitter-3-xl.png" width="30"></a>
+                </div>
+                <p>Backpackers INC</p>
+                <p style="font-size: 13px;">21 Something Street Unit #01-01 S552069</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="wrapper">
+        <div id="popUp" class="popUp popup_hide">
+            <div class="popUp-content shadow">
+                <!-- <span class="close">&times;</span> -->
+                <!-- <p>Успей заказать! Только сегодня -  скидка 15%!</p> -->
+                <img src="https://www.epayment.com.ng/images/blog-wp-login-1200x400.png" alt="" class="popUp-img">
+                <p>Please login via Google to use SG Backpacking</p>
+                <button onclick="clickEventM()" class='login-modal-btn'
+                    onclick='this.blur()'><span>Login</span></button>
+
+            </div>
+        </div>
+    </div>
+
+    <!-- JS, Popper.js, and jQuery -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous">
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+        integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous">
+    </script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
+        integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous">
+    </script>
+
+    <!-- Firebase Scripts -->
+    <!-- CREATING CONNECTION -->
+    <!-- The core Firebase JS SDK is always required and must be listed first -->
+    <script src="https://www.gstatic.com/firebasejs/8.0.0/firebase-app.js"></script>
+
+    <!-- TODO: Add SDKs for Firebase products that you want to use
+        https://firebase.google.com/docs/web/setup#available-libraries -->
+
+    <!-- DATABASE SDK -->
+    <script src="https://www.gstatic.com/firebasejs/8.0.0/firebase-database.js"></script>
+    <!-- AUTHENTICATION SDK  -->
+    <script src="https://www.gstatic.com/firebasejs/8.0.0/firebase-auth.js"></script>
+
+    <script>
+        // Your web app's Firebase configuration
+        // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+        // var firebaseConfig = {
+        //     apiKey: "AIzaSyDVSWdHRCROonNCr8c-yONfZHqvgbXPUMM",
+        //     authDomain: "is113-290314.firebaseapp.com",
+        //     databaseURL: "https://is113-290314.firebaseio.com",
+        //     projectId: "is113-290314",
+        //     storageBucket: "is113-290314.appspot.com",
+        //     messagingSenderId: "8890308034",
+        //     appId: "1:8890308034:web:350da78819e0dfdb32f25b",
+        //     measurementId: "G-WGP3HLN0C8"
+        // };
+        var firebaseConfig = {
+            apiKey: "AIzaSyBut5tYge45WNINgiZ0G95PdNwGssJWLpU",
+            authDomain: "is113-22246.firebaseapp.com",
+            databaseURL: "https://is113-22246.firebaseio.com",
+            projectId: "is113-22246",
+            storageBucket: "is113-22246.appspot.com",
+            messagingSenderId: "128710837230",
+            appId: "1:128710837230:web:1c2694b30879361f5a84ff",
+            measurementId: "G-943R06ZSDW"
+        };
+
+        // Initialize Firebase
+        firebase.initializeApp(firebaseConfig);
+
+        //database root 
+        const database = firebase.database();
+
+        //database favlist
+        const favList = database.ref('favList/math');
+
+        favList.child('math')
+
+        firebase.auth().onAuthStateChanged(function (user) {
+            if (user) {
+                // User is signed in.
+                console.log("User is signed in.")
+                // alert(user.displayName)
+                logInStuff = document.getElementById('logInStuff')
+                logInStuff.innerHTML = 'Log out'
+                //hide modal 
+                modal.style.display = "none";
+
+            } else {
+                // No user is signed in.
+                console.log("No user is signed in.")
+                logInStuff = document.getElementById('logInStuff')
+                logInStuff.innerHTML = 'Log in'
+
+                //make modal appear
+                modal.style.display = "block";
+            }
+        });
+    </script>
+    <!-- End Firebase scripts -->
+
+    <!-- API Scripts -->
+    <script>
+        // API Keys
+        var googleAPIKey = "AIzaSyCdQyFxtdfcTBsUHfjF9c_mzcWfQAYksxM";
+        var tihAPIKey = "EZanmtPAizJJIK44Q9kCppdsAULOadYo";
+
+
+
+        var map, infoWindow, geocoder;
+        var markers = [];
+
+        function initMap() {
+            if (navigator.geolocation) {
+                navigator.geolocation.getCurrentPosition(
+                    (position) => {
+                        const pos = {
+                            lat: position.coords.latitude,
+                            lng: position.coords.longitude,
+                        };
+                        infoWindow.setPosition(pos);
+                        infoWindow.setContent("You Are Here!");
+                        infoWindow.open(map);
+                        map.setCenter(pos);
+                        getExploreCards(pos)
+                    },
+                    () => {
+                        handleLocationError(true, infoWindow, map.getCenter());
+                    }
+                );
+            } else {
+                // Browser doesn't support Geolocation
+                handleLocationError(false, infoWindow, map.getCenter());
+            }
+            map = new google.maps.Map(document.getElementById("map"), {
+                center: {
+                    lat: 1.352083,
+                    lng: 103.819839
+                },
+                zoom: 16,
+                zoomControl: true,
+                mapTypeControl: false,
+                scaleControl: true,
+                streetViewControl: true,
+                rotateControl: true,
+                fullscreenControl: true
+            });
+            infoWindow = new google.maps.InfoWindow();
+            const locationButton = document.createElement("button");
+            locationButton.textContent = "Where am I?";
+            locationButton.classList.add("custom-map-control-button");
+            map.controls[google.maps.ControlPosition.TOP_CENTER].push(locationButton);
+            locationButton.addEventListener("click", () => {
+                // Try HTML5 geolocation.
+                if (navigator.geolocation) {
+                    navigator.geolocation.getCurrentPosition(
+                        (position) => {
+                            const pos = {
+                                lat: position.coords.latitude,
+                                lng: position.coords.longitude,
+                            };
+
+                            // infoWindow.setPosition(pos);
+                            // infoWindow.setContent("You are here!");
+                            // infoWindow.open(map);
+                            map.setCenter(pos);
+                        },
+                        () => {
+                            handleLocationError(true, infoWindow, map.getCenter());
+                        }
+                    );
+                } else {
+                    // Browser doesn't support Geolocation
+                    handleLocationError(false, infoWindow, map.getCenter());
+                }
+            });
+        }
+
+        function getExploreCards(pos) {
+            var placesDiv = document.getElementById("placesDiv")
+
+            var curr_pos = pos.lat.toString() + "," + pos.lng.toString()
+            var place =
+                `https://lingering-butterfly-c754.scaper65.workers.dev/?https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=${curr_pos}&radius=1500&type=&keyword=attractions&key=AIzaSyAqjNqjhJJ6C6I3VgUHMS6w-EKQc7mRv9I`
+            var request = new XMLHttpRequest;
+            request.onreadystatechange = function () {
+                if (this.readyState == 4 && this.status == 200) {
+                    var places = JSON.parse(this.responseText);
+                    // console.log(places)
+                    for (index in places.results) {
+                        var lat = places.results[index].geometry.location.lat
+                        var lng = places.results[index].geometry.location.lng
+                        var destination = lat.toString() + "," + lng.toString()
+                        // console.log(destination)
+                        // console.log(typeof(destination))
+                        var name = places.results[index].name
+                        // console.log(name)
+                        if (!places.results[index].opening_hours) {
+                            var open = "Closed Now"
+                        } else {
+                            var open = "Open Now"
+                        }
+                        var iconLink = places.results[index].icon
+                        var tags = ""
+                        for (tag of places.results[index].types) {
+                            tags += tag + " "
+                        }
+                        var location = places.results[index].vicinity
+                        // console.log(places.results[index].name)
+                        var placeCard = `
+                                        <li class="flex-shrink-0 w-100" role="menuitem">
+                                            <div class="explore-item overflow-hidden rounded border-0 text-wrap m-1" role="button">
+                                                <div class="card d-flex flex-col justify-center border-0 p-3"
+                                                    onclick="display('${destination}')">
+                                                            <h5>${name}</h5>
+                                                    <p class="responsive-xs text-wrap mb-1 text-info">Location: ${location}</p>
+                                                    <p class="responsive-xs text-wrap font-italic mb-1" style="font-family: serif;">Tags: ${tags}</p>
+                                                    
+                                                </div>
+                                            </div>
+                                        </li>
+                                        `
+                        placesDiv.innerHTML += placeCard
+
+                    }
+
+                }
+            }
+            request.open("GET", encodeURI(place), true);
+            request.send();
+        }
+
+        async function withinWalkingDistance(lat, lng) {
+            // alert(lat,lng)
+            var destination = lat.toString() + ',' + lng.toString()
+            var boolean_val;
+            if ("geolocation" in navigator) {
+                navigator.geolocation.getCurrentPosition(async function (position) {
+                    var currentLatitude = position.coords.latitude;
+                    var currentLongitude = position.coords.longitude;
+                    var current_pos = currentLatitude.toString() + "," + currentLongitude
+                        .toString()
+                    var request = new XMLHttpRequest();
+                    request.onreadystatechange = function () {
+                        if (this.readyState == 4 && this.status == 200) {
+                            var response = JSON.parse(this.responseText)
+                            boolean_val = response.routes[0].legs[0].distance.value <= 10000
+                        }
+                    };
+                    request.open("GET",
+                        `https://lingering-butterfly-c754.scaper65.workers.dev/?https://maps.googleapis.com/maps/api/directions/json?origin=${current_pos}&destination=${destination}&mode=walking&key=AIzaSyAqjNqjhJJ6C6I3VgUHMS6w-EKQc7mRv9I`,
+                        true);
+                    request.send();
+                })
+            }
+            console.log(boolean_val)
+        }
+
+        async function placeMarker(lat, lng, addr) {
+            var pos;
+            if (lat != 0 && lng != 0) {
+                pos = {
+                    lat: lat,
+                    lng: lng
+                }
+            } else {
+                pos = await findLatLong(addr)
+            }
+            var locationDetails = await getLocationDetails(pos);
+            addMarkerInfoWindow(pos, locationDetails);
+        }
+
+
+        // gets the location's address
+        async function getLocationDetails(pos) {
+            var lat = pos.lat
+            var lng = pos.lng
+            var xhttp = new XMLHttpRequest();
+            var data = await axios({
+                    method: 'get',
+                    url: `https://maps.googleapis.com/maps/api/geocode/json?address=${lat},${lng}&key=${googleAPIKey}`
+                })
+                .then(function (response) {
+                    var data = response
+                    var addr_list = data.data.results[0].formatted_address.split(", ")
+                    var coord = data.data.results[0].geometry.location
+                    var place_id = data.data.results[0].place_id
+                    var location_details = {
+                        "addr_list": addr_list,
+                        "coord": coord,
+                        "place_id": place_id
+                    }
+
+                    return location_details
+
+                })
+                .catch(function (error) {
+                    // not a good idea to directly show err.message
+                    // as it may contain sensitive info
+                    handleLocationError(false, map.getCenter());
+                })
+            return data
+        }
+
+        function display(end) {
+            const directionsRenderer = new google.maps.DirectionsRenderer();
+            const directionsService = new google.maps.DirectionsService();
+            map = new google.maps.Map(document.getElementById('map'), {
+                center: {
+                    lat: -34.397,
+                    lng: 150.644
+                },
+                zoom: 12
+            });
+            infoWindow = new google.maps.InfoWindow;
+
+            directionsRenderer.setMap(map);
+
+            // Try HTML5 geolocation.
+            if (navigator.geolocation) {
+                navigator.geolocation.getCurrentPosition(function (position) {
+                    var pos = {
+                        lat: position.coords.latitude,
+                        lng: position.coords.longitude
+                    };
+                    map.setCenter(pos);
+                    // document.getElementById("right-panel").innerHTML += `<div class="box text-center w-100 h-50 m-auto rounded border border-dark m-10" style="background: #00b894; color: white; font-size:1rem; font-weight: bold;">
+                    //     <p class="my-auto py-auto">Route directions</p> 
+                    // </div>`;
+                    directionsRenderer.setPanel(document.getElementById("right-panel"));
+                    calculateAndDisplayRoute(directionsService, directionsRenderer, end, pos);
+                }, function () {
+                    handleLocationError(true, infoWindow, map.getCenter());
+                });
+            } else {
+                // Browser doesn't support Geolocation
+                handleLocationError(false, infoWindow, map.getCenter());
+            }
+
+        }
+
+        function calculateAndDisplayRoute(directionsService, directionsRenderer, end, pos) {
+            // console.log(end)
+
+            directionsService.route({
+                    origin: pos,
+                    destination: end,
+                    // new google.maps.LatLng(1.2911354, 103.8501524),
+                    travelMode: google.maps.TravelMode['WALKING'],
+                },
+                (response, status) => {
+                    if (status === "OK") {
+                        directionsRenderer.setDirections(response);
+
+                    } else {
+                        window.alert("Directions request failed due to " + status +
+                            "\nUnable to find route to Destination");
+                    }
+                }
+            );
+        }
+
+        $(document).ready(function () {
+            var scroll_start = 0;
+            var startchange = $('.main');
+            var offset = startchange.offset();
+            if (startchange.length) {
+                $(document).scroll(function () {
+                    scroll_start = $(this).scrollTop();
+                    if (scroll_start > offset.top) {
+                        $(".navbar").css('background-color', 'white');
+                        $("#logo").attr('src', '../img/icons/logo-white.jpg')
+                        $(".nav-link").css('color', '#2F4F4F')
+                        $(".dropdown-menu").css('background-color', 'white')
+                        $(".dropdown-item").css('color', '#2F4F4F')
+                        // $(".dropdown-menu.show > *").css('color', '#2F4F4F')
+                        $("label").css('color', '#2F4F4F')
+                    } else {
+                        $('.navbar').css('background-color', '#2F4F4F');
+                        $("#logo").attr('src', '../img/icons/logo-grey.jpg')
+                        $(".nav-link").css('color', '#D9D9D9')
+                        $(".dropdown-menu").css('background-color', '#2F4F4F')
+                        $(".dropdown-item").css('color', '#D9D9D9')
+                        // $(".dropdown-menu.show > *").css('color', '#D9D9D9')
+                        $("label").css('color', '#D9D9D9')
+                    }
+                });
+            }
+        });
+
+        var modal = document.getElementById('popUp');
+
+        //click event for modal
+        function clickEventM() {
+            event.target.innerHTML == 'Log out'
+            provider = new firebase.auth.GoogleAuthProvider();
+            firebase.auth().signInWithRedirect(provider).then(function (result) {
+                console.log(result);
+                console.log("success")
+
+                // ...
+            }).catch(function (error) {
+                // Handle Errors here.
+                var errorCode = error.code;
+                var errorMessage = error.message;
+                // The email of the user's account used.
+                var email = error.email;
+                // The firebase.auth.AuthCredential type that was used.
+                var credential = error.credential;
+                // ...
+            });
+
+
+        }
+
+
+        //log in function for navbar
+        function clickEvent() {
+            if (event.target.innerHTML == 'Log in') {
+                event.target.innerHTML == 'Log out'
+                provider = new firebase.auth.GoogleAuthProvider();
+                firebase.auth().signInWithRedirect(provider).then(function (result) {
+                    console.log(result);
+                    console.log("success")
+
+                    // ...
+                }).catch(function (error) {
+                    // Handle Errors here.
+                    var errorCode = error.code;
+                    var errorMessage = error.message;
+                    // The email of the user's account used.
+                    var email = error.email;
+                    // The firebase.auth.AuthCredential type that was used.
+                    var credential = error.credential;
+                    // ...
+                });
+
+            } else {
+                event.target.innerHTML == 'Log in'
+                firebase.auth().signOut().then(function () {
+                    // Sign-out successful.
+                }).catch(function (error) {
+                    // An error happened.
+                });
+
+            }
+
+        }
+    </script>
+
+    <!-- load the map asynchronously, i.e., load data soon as it becomes available -->
+    <script defer
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCdQyFxtdfcTBsUHfjF9c_mzcWfQAYksxM&callback=initMap">
+    </script>
+    <!-- End API scripts-->
+
+</body>
+
+</html>

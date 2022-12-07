@@ -1,0 +1,1327 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <!-- Required meta tags always come first-->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <!-- Base CSS and font family -->
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
+
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+    integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+
+  <!-- Animate CSS -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+
+  <!-- Font-Awesome -->
+  <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
+    integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
+
+  <!-- ICON NEEDS FONT AWESOME FOR CHEVRON UP ICON -->
+  <link href="//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css" rel="stylesheet">
+
+  <!-- Stylesheet for transport page  -->
+  <link rel="stylesheet" type="text/css" href="../css/transport.css" />
+
+  <title>SG Backpacking | Transport guide</title>
+
+  <style>
+    * {
+      font-family: 'Montserrat', sans-serif;
+    }
+
+    .bg-image {
+      /* The image used */
+      background-image: url("photographer.jpg");
+
+      /* Add the blur effect */
+      /* filter: blur(1px);
+      -webkit-filter: blur(3px); */
+
+      filter: blur(3px);
+      transform: scale(1.1);
+
+      /* Full height */
+      height: 100%;
+
+      /* Center and scale the image nicely */
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: cover;
+
+      border: 1px solid black;
+    }
+
+    .bg-text {
+      /* Black w/opacity/see-through */
+      color: white;
+      font-weight: 900;
+      position: absolute;
+      top: 24%;
+      left: 30%;
+      transform: translate(-50%, -50%);
+      z-index: 2;
+      width: 80%;
+      padding: 20px;
+      text-align: center;
+    }
+
+    .circle {
+      margin-bottom: 20px;
+      height: 70px;
+      width: 70px;
+      background-color: #2F4F4F;
+      border-radius: 50%;
+    }
+
+    .circle>i {
+      position: relative;
+      top: calc(50% - 15px);
+      /* 50% - 3/4 of icon height */
+      left: calc(50% - 15px);
+      font-size: 30px;
+    }
+
+    .circle-phone {
+      margin-bottom: 20px;
+      height: 70px;
+      width: 70px;
+      background-color: #2F4F4F;
+      border-radius: 50%;
+    }
+
+    .circle-phone>i {
+      position: relative;
+      top: calc(50% - 15px);
+      /* 50% - 3/4 of icon height */
+      left: calc(50% - 11px);
+      font-size: 30px;
+    }
+
+    .category {
+      margin: 0px 40px;
+    }
+  </style>
+
+</head>
+
+<body>
+  <!-- Nav -->
+  <nav class="navbar navbar-expand-lg sticky-top navbar-fixed-top py-0 px-3"
+    style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, .12), 0 2px 4px 0 rgba(0, 0, 0, .08); display: flex; flex-direction: row; justify-content: space-between; background-color: darkslategray; position: sticky;">
+    <a class="navbar-brand" href="../index.html"><img src="../img/icons/logo-grey.JPG" width="300" id="logo"
+        style="border-radius: 10%; height: auto; width: 200px;"></a>
+
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+      aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"
+      style="background-color: #2f4f4f;">
+      <i class="fas fa-bars" style="color: #A6A6A6"></i>
+    </button>
+
+    <div class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-2">
+        <li class="nav-item dropdown" style="margin: 20px;">
+          <a class="nav-link" href="places.html" style="color: #D9D9D9;">
+            Places to Visit
+          </a>
+        </li>
+
+        <li class="nav-item dropdown" style="margin: 20px;">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
+            aria-haspopup="true" aria-expanded="false" style="color: #D9D9D9;">
+            Communication and Travel
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdown" style="background-color: darkslategrey;">
+            <a class="dropdown-item" href="accommodation.html" style="color: #D9D9D9;">Accommodation</a>
+            <a class="dropdown-item" href="transport.html" style="color: #D9D9D9;">Transportation</a>
+            <a class="dropdown-item" href="wifi.html" style="color: #D9D9D9;">WiFi and SIM cards</a>
+          </div>
+        </li>
+
+        <li class="nav-item dropdown" style="margin: 20px;">
+          <a class="nav-link" href="favourites.html" style="color: #D9D9D9;">
+            Favourites
+          </a>
+        </li>
+
+        <li class="nav-item" style="margin: 20px;">
+          <!-- Add vue v-if here to display login or logout depending whether on user-->
+          <a class="nav-link" href="#" style="color: #D9D9D9; cursor: pointer;" onclick="clickEvent()" id='logInStuff'>
+            Login
+          </a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+
+  <div class="container-fluid main">
+    <!--To Top-->
+    <a onclick="topFunction()" href="javascript:" id="return-to-top"><i class="icon-chevron-up"></i></a>
+
+    <div class="row">
+      <!--transport heading-->
+      <div class="jumbotron sub-main-banner w-100 p-5 bg-image"
+        style="background-image: url(../img/transport/travelling.jpg)">
+
+      </div>
+      <div class="bg-text">
+        <h3 style="font-weight: 900;">Getting Around Singapore</h3>
+      </div>
+    </div>
+
+    <div class="row mt-5">
+      <div class="col-12">
+        <h4 class="text-center" style="font-weight: bold; color: #2F4F4F;">There are different ways of getting to your
+          desired destination!</h4>
+      </div>
+      <!-- <div class="col-12 d-flex flex-row justify-content-center my-5"> -->
+      <div class="row mx-auto my-5">
+        <div class="col-6 col-lg-3">
+          <div class="category d-flex flex-column justify-content-between align-items-center">
+            <div class="circle"><i class="fas fa-train"></i></div>
+            <a class="anchor" href="#MRTInfo">
+              <h5>
+                Go by MRT
+              </h5>
+            </a>
+          </div>
+        </div>
+        <div class="col-6 col-lg-3">
+          <div class="category d-flex flex-column justify-content-between align-items-center">
+            <div class="circle"><i class="fas fa-bus"></i></div>
+            <a class="anchor" href="#busInfo">
+              <h5>
+                Go by Bus
+              </h5>
+            </a>
+          </div>
+        </div>
+        <div class="col-6 col-lg-3">
+          <div class="category d-flex flex-column justify-content-between align-items-center">
+            <div class="circle-phone"><i class="fas fa-mobile"></i></div>
+            <a class="anchor" href="#RIDEInfo">
+              <h5 class='text-center'>
+                Go by Ride-hailing
+              </h5>
+            </a>
+          </div>
+        </div>
+        <div class="col-6 col-lg-3">
+          <div class="category d-flex flex-column justify-content-between align-items-center">
+            <div class="circle"><i class="fas fa-taxi"></i></div>
+            <a class="anchor" href="#taxiInfo">
+              <h5>
+                Go by Taxi
+              </h5>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="row border-bottom mx-5"></div>
+
+  <!--MRT INFO heading-->
+  <div id="MRTInfo"></div>
+
+  <div class="row">
+    <div class="col-12">
+      <div class="my-5">
+        <h3 class="text-center">MRT Information</h3>
+      </div>
+    </div>
+    <div class="row" style="width:70%;margin:auto">
+      <div class="col-12 col-lg-4">
+        <div class="card">
+          <div class="card-body" style="overflow: hidden;">
+            <h5 class="card-title">Tourist EZ link</h5>
+            <hr>
+            <p class="card-text"> The Singapore Tourist Pass is a special ez-link card that offers tourist unlimited
+              public transport travel on Singapore’s basic bus services, MRT and LRT trains for the duration that it
+              is
+              valid. You can now take in the sights and sounds of Singapore in the comfort of the island’s extensive
+              train
+              system and public bus network!</p>
+            <div class="inner">
+              <img src="../img/transport/mrttouristpass.png" id="pass">
+            </div>
+            <br>
+            <a id="moreEZ" class="btn btn-outline-info" href="#EZInfo">Find out more ></a>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-12 col-lg-4">
+        <div class="card">
+          <div class="card-body" style="overflow: hidden;">
+            <h5 class="card-title">Rail Lines</h5>
+            <hr>
+            <p class="card-text">
+              <span class="badge badge-success">EW</span>
+              <a href="https://www.lta.gov.sg/content/dam/ltagov/getting_around/public_transport/rail_network/east_west_line/image/ewl_sm_tel1.png"
+                target="_blank"> East West Line</a>
+            </p>
+            <br>
+            <p class="card-text">
+              <span class="badge badge-danger">NS</span>
+              <a href="https://www.lta.gov.sg/content/dam/ltagov/getting_around/public_transport/rail_network/north_south_line/image/nsl_sm_tel1.png"
+                target="_blank"> North South Line</a>
+            </p>
+            <br>
+            <p class="card-text">
+              <span class="badge" id="NE">NE</span>
+              <a href="https://www.lta.gov.sg/content/dam/ltagov/getting_around/public_transport/rail_network/north_east_line/image/nel_sm_tel1.png"
+                target="_blank"> North East Line</a>
+            </p>
+            <br>
+            <p class="card-text">
+              <span class="badge badge-pill badge-warning">CC</span>
+              <a href="https://www.lta.gov.sg/content/dam/ltagov/getting_around/public_transport/rail_network/circle_line/image/ccl_sm_tel1.png"
+                target="_blank"> Circle Line</a>
+            </p>
+            <br>
+            <p class="card-text">
+              <span class="badge" id="DTL">DTL</span>
+              <a href="https://www.lta.gov.sg/content/dam/ltagov/getting_around/public_transport/rail_network/downtown_line/image/dtl_sm_tel1.png"
+                target="_blank"> DownTown Line</a>
+            </p>
+            <br>
+            <p class="card-text">
+              <span class="badge" id="TE">TE</span>
+              <a href="https://www.lta.gov.sg/content/ltagov/en/getting_around/public_transport/rail_network/thomson_east_coast_line/_jcr_content/par/image.img.png/1580366965678.png"
+                target="_blank"> Thomson-East Coast Line</a>
+            </p>
+            <br>
+            <p class="card-text">
+              <span class="badge badge-pill badge-secondary">BP</span>
+              <a href="https://www.lta.gov.sg/content/dam/ltagov/getting_around/public_transport/rail_network/bukit_panjang_lrt/image/bp_sm_tel1.png"
+                target="_blank"> Bukit Panjang LRT</a>
+            </p>
+            <br>
+            <p class="card-text">
+              <span class="badge badge-pill badge-secondary">SK-PG</span>
+              <a href="https://www.lta.gov.sg/content/dam/ltagov/getting_around/public_transport/rail_network/sengkang_punggol_lrt/image/skpg_sm_tel1.png"
+                target="_blank"> Sengkang-Punggol LRT</a>
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-12 col-lg-4">
+        <div class="card">
+          <div class="card-body" style="overflow: hidden;">
+            <h5 class="card-title">Things to note when on the train!</h5>
+            <hr>
+            <p class="card-text"> There are seats which are reserved for the Elderly, People of disabilities, Pregnant
+              Women, People who are injured, etc... If you happen to be in this seat, we encourage you to give up the
+              seat
+              for these group of people &#128512 </p>
+            <div class="inner">
+              <img src="../img/transport/mrtreserved.jpg" id="reserved">
+            </div>
+            <br>
+            <a id="moreEZ" class="btn btn-outline-info" href="#moreMRTInfo">Find out more ></a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div id="accordion" class="mx-5 my-5">
+    <div class="card">
+      <div class="card-header" id="headingOne">
+        <h5 class="mb-0">
+          <button class="btn btn-link" data-toggle="collapse" data-target="#collapseMRT" aria-expanded="false"
+            aria-controls="collapseMRT" style="color: #2F4F4F;">
+            Rules to observe in the MRT<i class="fas fa-arrow-circle-down ml-3 my-auto" style="font-size: 24px;"></i>
+          </button>
+        </h5>
+      </div>
+
+      <div id="collapseMRT" class="collapse" aria-labelledby="headingOne" data-parent="#accordion">
+        <div class="card-body">
+          <div class="row">
+            <div class="col-4 my-4 text-center">
+              <h3 class="text-info"><b>1</b></h3>
+              <br>
+              When boarding and alighting the train, please mind the gap between the platform edge and the train.
+            </div>
+            <div class="col-4 my-4 text-center">
+              <h3 class="text-info"><b>2</b></h3>
+              <br>
+              Please move to the centre of the train car upon boarding to facilitate commuter traffic in and out of
+              the
+              train.
+            </div>
+            <div class="col-4 my-4 text-center">
+              <h3 class="text-info"><b>3</b></h3>
+              <br>
+              Do not lean against the train doors or the door to the train captain’s cabin which is located at both
+              ends
+              of
+              the
+              train.
+            </div>
+            <div class="col-4 my-4 text-center">
+              <h3 class="text-info"><b>4</b></h3>
+              <br>
+              Do not bring flammable liquids and gases onboard the train.
+            </div>
+            <div class="col-4 my-4 text-center">
+              <h3 class="text-info"><b>5</b></h3>
+              <br>
+              Please keep prams/strollers, bags and luggage out of the way of fellow commuters. These must never block
+              walkways
+              and doorways.
+            </div>
+            <div class="col-4 my-4 text-center">
+              <h3 class="text-info"> <b>6</b></h3>
+              <br>
+              If you are caught between train doors, remain calm and alert other commuters to press the emergency
+              communication
+              button to inform the train captain. The train will not depart if its doors are not fully closed.
+            </div>
+            <div class="col-4 my-4 text-center">
+              <h3 class="text-info"><b>7</b></h3>
+              <br>
+              Do not eat or drink in the MRT.
+            </div>
+            <div class="col-4 my-4 text-center">
+              <h3 class="text-info"><b>8</b></h3>
+              <br>
+              Do not smoke inside the MRT.
+            </div>
+            <div class="col-4 my-4 text-center">
+              <h3 class="text-info"><b>9</b></h3>
+              <br>
+              Give up seats for anyone who might need them more!
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-header" id="headingTwo">
+        <h5 class="mb-0">
+          <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapselink"
+            aria-expanded="false" aria-controls="collapseTwo" style="color: #2F4F4F;">
+            Tourist EZ Link<i class="fas fa-arrow-circle-down ml-3 my-auto" style="font-size: 24px;"></i>
+          </button>
+        </h5>
+      </div>
+      <div id="collapselink" class="collapse" aria-labelledby="headingTwo" data-parent="#accordion">
+        <div class="card-body">
+          <div class="row" style="width:100%;margin:auto">
+            <div class="col-12 col-lg-4">
+              <div class="card bg-warning text-center">
+                <div class="card-header" id="ez1"></div>
+                <div class="inner">
+                  <img src="../img/transport/touristpass.png" id="ezImg1">
+                </div>
+                <h3 style="text-align: center; color: maroon;">
+                  <b>Singapore Tourist Pass</b>
+                </h3>
+                <h3 style="color: rgb(202, 159, 159);"><b><i>$10/$16/$20</i></b></h4>
+                  <hr>
+                  <h5><b>Duration</b></h5>
+                  <h3 style="color: white;"><b><i>1 to 3 days</i></b></h3>
+                  <hr>
+                  <h5><b>Rides on Public Transport</b></h5>
+                  <h3 style="color: white;"><b><i>Unlimited</i></b></h3>
+                  <hr>
+                  <h5><b>Refundable Rental Deposit Required</b></h5>
+                  <h3 style="color: white;"><b><i>$10</i></b></h3>
+                  <hr>
+                  <h3 style="color: white;">
+                    <a href="https://thesingaporetouristpass.com.sg/perks-discounts/" target="_blank">Perks &
+                      Discounts</a>
+                  </h3>
+
+              </div>
+            </div>
+            <div class="col-12 col-lg-4">
+              <div class="card bg-warning text-center">
+                <div class="card-header" id="ez2"></div>
+                <div class="inner">
+                  <img src="../img/transport/touristpass2.png" style="width: 84%;margin:auto">
+                </div>
+                <h3 style="text-align: center; color: midnightblue;">
+                  <b>SG Tourist Pass</b>
+                </h3>
+                <h3 style="color: white;"><b><i>$25</i></b></h4>
+                  <hr>
+                  <h5><b>Duration</b></h5>
+                  <h3 style="color: white;"><b><i>3 days</i></b></h3>
+                  <hr>
+                  <h5><b>Rides on Public Transport</b></h5>
+                  <h3 style="color: white;"><b><i>Unlimited</i></b></h3>
+                  <hr>
+                  <h5><b>Refundable Rental Deposit Required</b></h5>
+                  <h3 style="color: white;"><b><i>NO</i></b></h3>
+                  <hr>
+                  <div style="padding: 37px;"></div>
+              </div>
+            </div>
+            <div class="col-12 col-lg-4">
+              <div class="card bg-warning text-center">
+                <div class="card-header" style="padding: 20px;background-color:lightseagreen;"></div>
+                <div class="inner">
+                  <img src="../img/transport/tourispassplus.png" style="width: 79%;margin:auto">
+                </div>
+                <h3 style="text-align: center; color:lightseagreen;">
+                  <b>Singapore Tourist Pass</b>
+                </h3>
+                <h3 style="color: white;"><b><i>$38</i></b></h4>
+                  <hr>
+                  <h5><b>Duration</b></h5>
+                  <h3 style="color: white;"><b><i>3 days</i></b></h3>
+                  <hr>
+                  <h5><b>Rides on Public Transport</b></h5>
+                  <h3 style="color: white;"><b><i>Unlimited</i></b></h3>
+                  <hr>
+                  <h5><b>Refundable Rental Deposit Required</b></h>
+                    <h3 style="color: white;"><b><i>NO</i></b></h3>
+                    <hr>
+                    <h3 style="color: white;">
+                      <a href="https://attractions.changirecommends.com/ticket/?fbclid=IwAR1V2Dru4fyjFGIHtYo5LPtXVEW8KWe8EBTmgo4yHhYf5jgbTbqv7Tx5wHY#/product?productId=667"
+                        target="_blank">Bundle Deals</a>
+                    </h3>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="row border-bottom mx-5"></div>
+
+  <!--Bus HEADER-->
+  <div id="busInfo"></div>
+
+
+  <div class="row">
+    <div class="col-12">
+      <div class="my-5">
+        <h3 class="text-center">Bus Information</h3>
+      </div>
+    </div>
+    <!--Bus info -->
+    <div class="row" style="width: 90%;margin: auto;">
+      <div class="col-12 col-lg-4">
+        <div class="card" style="height: 550px;">
+          <div class="card-body" style="overflow: hidden;">
+            <h5 class="card-title">Bus Fare Payment</h5>
+            <hr>
+            <p class="card-text">You can pay for your bus fare using an adult stored value smartcard (EZ-link / Nets
+              FlashPay) or the Singapore Tourist Pass (STP). You can also opt to pay in cash, but make sure you have
+              the
+              exact amount in change.keep an eye out for the electronic card reader — located next to the bus
+              driver—and
+              tap as you board.</p>
+            <div class="inner">
+              <img src="../img/transport/buscardreader.jpg" style="width: 100%;">
+            </div>
+            <br>
+          </div>
+        </div>
+      </div>
+      <div class="col-12 col-lg-4">
+        <div class="card" style="height: 550px;">
+          <div class="card-body" style="overflow: hidden;">
+            <h5 class="card-title">Bus Arrival Time</h5>
+            <hr>
+            <div class="inner">
+              <img src="../img/transport/busarival.jpg" style="width: 100%;">
+            </div>
+            <p class="card-text"> In some Bus Stops, there are digital panels for passengers to check for the arrival
+              of
+              buses.But if there are no digital panels in the Bus stop you are at, let us show you how!</p>
+            <br>
+            <br>
+            <br>
+            <br>
+            <a class="btn btn-outline-info" href="#busArrivalInfo" style="margin-left: 50%">Find out more ></a>
+          </div>
+        </div>
+      </div>
+      <div class="col-12 col-lg-4">
+        <div class="card" style="height: 550px;">
+          <div class="card-body" style="overflow: hidden;">
+            <h5 class="card-title">Things to note when on the BUS!</h5>
+            <hr>
+            <p class="card-text"> The bus driver may not stop at every stop unless the driver is notified by the
+              passenger. You may do so by pressing the bell on the handrails to alert the driver before the bus
+              reaches
+              the next stop.</p>
+            <div class="inner">
+              <img src="../img/transport/mrttouristpass.png" id="pass">
+            </div>
+            <br>
+            <br>
+            <a class="btn btn-outline-info" href="#busNoteInfo" style="margin-left: 50%">Find out more ></a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div id="accordion" class="mx-5 my-5">
+    <div class="card">
+      <div class="card-header" id="headingOne">
+        <h5 class="mb-0">
+          <button class="btn btn-link" data-toggle="collapse" data-target="#collapseMRT" aria-expanded="false"
+            aria-controls="collapseMRT" style="color: #2F4F4F;">
+            Bus Arrival<i class="fas fa-arrow-circle-down ml-3 my-auto" style="font-size: 24px;"></i>
+          </button>
+        </h5>
+      </div>
+
+      <div id="collapseMRT" class="collapse" aria-labelledby="headingOne" data-parent="#accordion">
+        <div class="card-body">
+          <div class="row">
+            <div class="col">
+              <div class="card">
+                <div class="card-body">
+                  <h5 class="card-title">
+                    <p class="text-center"><b>Using Google Maps</b></p>
+                  </h5>
+                  <hr>
+                  <p>Step 1: Locate the Postal Code of the Bus Stop as shown in the picture</p>
+                  <div class="inner">
+                    <img src="../img/transport/buspostalcode.png">
+                  </div>
+                  <hr>
+                  <p>Step 2: Key in the Postal Code into Google Map and get the Arrival Time</p>
+                  <div class="inner">
+                    <img src="../img/transport/gmapbusarrival.jpg" style="width: 100%;">
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col">
+              <div class="card">
+                <div class="card-body">
+                  <h5 class="card-title">
+                    <p class="text-center"><b>Using Bus Arrival Apps</b></p>
+                  </h5>
+                  <hr>
+                  <p>There are Apps dedicated to check for the Arrival Timings of Buses as well! Here are some popular
+                    ones:
+                  </p>
+                  <div class="row">
+                    <div class="col">
+                      <h5 style="text-align: center;font-weight: bold;">Citymapper</h5>
+                      <div class="inner">
+                        <img src="../img/transport/citymapper.png" style="width: 100%">
+                      </div>
+                      <a href="https://play.google.com/store/apps/details?id=com.citymapper.app.release&hl=en_SG"
+                        target="_blank">Download for ANDRIOD</a>
+                    </div>
+                    <div class="col">
+                      <h5 style="text-align: center;font-weight: bold;">MyTransport.SG</h5>
+                      <div class="inner">
+                        <img src="../img/transport/mytransportSG.png" style="width: 100%">
+                      </div>
+                      <a href="https://apps.apple.com/sg/app/mytransport-sg/id1306661188" target="_blank">Download for
+                        ANDRIOD</a>
+                      <a href="https://play.google.com/store/apps/details?id=sg.gov.lta.mytransportsg&hl=en_SG"
+                        target="_blank">Download for IOS</a>
+                    </div>
+                    <div class="col">
+                      <h5 style="text-align: center;font-weight: bold;">SG BusLeh</h5>
+                      <div class="inner">
+                        <img src="../img/transport/busleh.png" style="width: 100%">
+                      </div>
+                      <a href="https://apps.apple.com/sg/app/sg-busleh-bus-train-timings/id1457795886"
+                        target="_blank">Download
+                        for ANDRIOD</a>
+                      <a href="https://play.google.com/store/apps/details?id=originally.us.buses&hl=en_SG"
+                        target="_blank">Download for IOS</a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-header" id="headingTwo">
+        <h5 class="mb-0">
+          <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapselink"
+            aria-expanded="false" aria-controls="collapseTwo" style="color: #2F4F4F;">
+            Things to note on the bus<i class="fas fa-arrow-circle-down ml-3 my-auto" style="font-size: 24px;"></i>
+          </button>
+        </h5>
+      </div>
+      <div id="collapselink" class="collapse" aria-labelledby="headingTwo" data-parent="#accordion">
+        <div class="card-body">
+          <div class="row" style="width:100%;margin:auto">
+            <div class="col-12 col-md-6 col-lg-4">
+              <div class="inner">
+                <img src="../img/transport/seatcounter.jpg" style="width: 100%;height: 200px;">
+              </div>
+              <h5 class="text-center mt-2"><b>Seat Counter</b></h5>
+              <hr>
+              <br>
+              <p>On some double decker buses, there are seat counters which show the availability of seats on the upper
+                deck
+                of
+                the bus. You would not have to hesitate in making a decision on whether to go up to the upper deck if
+                you are
+                in
+                a packed bus.</p>
+            </div>
+            <div class="col-12 col-md-6 col-lg-4">
+              <div class="inner">
+                <img src="../img/transport/usb.jpg" style="width: 100%;height: 200px;">
+              </div>
+              <h5 class="text-center mt-2"><b>USB Charging</b></h5>
+              <hr>
+              <br>
+              <p>On some double decker buses, there are seat counters which show the availability of seats on the upper
+                deck
+                of
+                the bus. You would not have to hesitate in making a decision on whether to go up to the upper deck if
+                you are
+                in
+                a packed bus.</p>
+            </div>
+            <div class="col-12 col-md-6 col-lg-4">
+              <div class="inner">
+                <img src="../img/transport/ramp.jpg" style="width: 100%;height: 200px;">
+              </div>
+              <h5 class="text-center mt-2"><b>Ramp on the bus</b></h5>
+              <hr>
+              <br>
+              <p>On some double decker buses, there are seat counters which show the availability of seats on the upper
+                deck
+                of
+                the bus. You would not have to hesitate in making a decision on whether to go up to the upper deck if
+                you are
+                in
+                a packed bus.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="row border-bottom mx-5"></div>
+
+  <div id="RIDEInfo">
+  </div>
+
+  <div class="row">
+    <div class="col-12">
+      <div class="my-5">
+        <h3 class="text-center">Ride-hailing information</h3>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-10 col-lg-6 mx-auto">
+        <div class="card">
+          <div class="card-body">
+            <p class="card-text">
+              <div class="row">
+                <div class="col-sm-6">
+                  <p>Given the convenience of flagging down a private hire car without the need to queue in taxi stands
+                    during peak hours,
+                    ride hailing apps are popular with locals as well!
+                  </p>
+                  <p>The bottom shows the popular ride hailing services that locals use.</p>
+                </div>
+                <div class="col-sm-6">
+                  <div class="inner">
+                    <img src="../img/transport/ryde-kardi-tada-filo-grab.jpg" style="float: right;width: 100%;">
+                  </div>
+                </div>
+              </div>
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="row mx-5 mt-5">
+      <div class="col-12 col-md-4">
+        <div class="card">
+          <div class="inner">
+            <img id="grab" src="../img/transport/grab.png" class="card-img-top img-fluid" alt="Image cap">
+          </div>
+          <div class="card-body">
+            <h5 class="card-title text-center">Grab</h5>
+            <hr>
+            <p class="card-text">
+              <a href="https://play.google.com/store/apps/details?id=com.grabtaxi.passenger&hl=en"
+                class="btn btn-success" target="_blank">Download Grab for Andriod</a>
+              <br>
+              <br>
+              <a href="https://apps.apple.com/us/app/grab-app/id647268330" class="btn btn-success"
+                target="_blank">Download Grab for IOS</a>
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="col-12 col-md-4">
+        <div class="card">
+          <div class="inner">
+            <img id="tada" src="../img/transport/tada.png" class="card-img-top img-fluid" alt="Image cap">
+          </div>
+          <div class="card-body">
+            <h5 class="card-title text-center">TADA</h5>
+            <hr>
+            <p class="card-text">
+              <a href="https://play.google.com/store/apps/details?id=io.mvlchain.tada&hl=en_SG" class="btn btn-warning"
+                target="_blank">Download TADA for Andriod</a>
+              <br>
+              <br>
+              <a href="https://apps.apple.com/sg/app/tada-ride-hailing/id1412329684" class="btn btn-warning"
+                target="_blank">Download TADA for IOS</a>
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="col-12 col-md-4">
+        <div class="card">
+          <div class="inner">
+            <img id="ryde" src="../img/transport/ryde.jpg" class="card-img-top img-fluid" alt="Image cap">
+          </div>
+          <div class="card-body">
+            <h5 class="card-title text-center">RYDE</h5>
+            <hr>
+            <p class="card-text">
+              <a href="https://play.google.com/store/apps/details?id=com.rydesharing.ryde&hl=en_SG"
+                class="btn btn-danger" target="_blank">Download RYDE for Andriod</a>
+              <br>
+              <br>
+              <a href="https://apps.apple.com/sg/app/ryde-taxi-car-hailing/id979806982" class="btn btn-danger"
+                target="_blank">Download RYDE for IOS</a>
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="border-bottom mt-5 mx-5"></div>
+
+  <div id="taxiInfo">
+  </div>
+
+  <div class="row">
+    <div class="col-12">
+      <div class="my-5">
+        <h3 class="text-center">Taxi information (Click below for information)</h3>
+      </div>
+    </div>
+    <!--taxi INFO-->
+    <div class="row" style="width:70%;margin: auto;">
+      <div class="col-2"></div>
+      <div class="col-8">
+        <div class="card">
+          <div class="card-header" id="heading1">
+            <h5 class="text-center">
+              <button class="btn btn-link" data-toggle="collapse" data-target="#collapse1" aria-expanded="false"
+                aria-controls="collapse1">
+                <h3>Breakdown of Taxi Fare</h3>
+              </button>
+            </h5>
+          </div>
+
+          <div id="collapse1" class="collapse" aria-labelledby="heading1">
+            <div class="card-body">
+
+              <table class="table table-striped">
+                <thead>
+                  <tr class="table-primary">
+                    <!--TAXI FARE-->
+                    <th scope="col">Basic fare</th>
+                    <th scope="col">Normal taxi</th>
+                    <th scope="col">Limousine taxi</th>
+                    <th scope="col">Chrysler taxi</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>Flag-Down (inclusive of 1st km or less)</td>
+                    <td>$3.00-$3.40</td>
+                    <td>$3.90</td>
+                    <td>$5.00</td>
+                  </tr>
+                  <tr>
+                    <td>Every 400m thereafter or less up to 10km</td>
+                    <td>$0.22</td>
+                    <td>$0.22</td>
+                    <td>$0.33</td>
+                  </tr>
+                  <tr>
+                    <td>Every 350 metres thereafter or less after 10 km</td>
+                    <td>$0.22</td>
+                    <td>$0.22</td>
+                    <td>$0.33</td>
+                  </tr>
+                  <tr>
+                    <td>Every 45 secs of waiting or less</td>
+                    <td>$0.22</td>
+                    <td>$0.22</td>
+                    <td>$0.33</td>
+                  </tr>
+                </tbody>
+              </table>
+
+              <table class="table table-striped">
+                <!--ADDITIONAL PASSENGER FARE-->
+                <thead>
+                  <tr class="table-primary">
+                    <th scope="col" colspan="4">Additional passenger fee </th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td colspan="2">Applicable for more than 4 adult passengers or its equivalent</td>
+                    <td colspan="2">$2.00 per passenger</td>
+                  </tr>
+                </tbody>
+              </table>
+
+              <table class="table table-striped">
+                <!--ERP FARE-->
+                <thead>
+                  <tr class="table-primary">
+                    <th scope="col" colspan="4">Electronic Road Pricing (ERP) charges </th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td colspan="4">All ERP charges incurred during trip</td>
+                  </tr>
+                </tbody>
+              </table>
+
+              <table class="table table-striped">
+                <!--PEAK HOUR FARE-->
+                <thead>
+                  <tr class="table-primary">
+                    <th scope="col" colspan="2">Peak hour surcharge <i>(Applicable at the time of boarding.)</i></th>
+                    <th scope="col" colspan="2">Additional</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td colspan="2">Mon – Fri: 6.00am to 9.30am</td>
+                    <td colspan="2">25% of metered fare</td>
+                  </tr>
+                  <tr>
+                    <td colspan="2">Mon – Sun & Public Holidays*: 6.00pm to midnight</td>
+                    <td colspan="2">25% of metered fare</td>
+                  </tr>
+                </tbody>
+              </table>
+
+              <table class="table table-striped">
+                <!--LOCATION FARE-->
+                <thead>
+                  <tr class="table-primary">
+                    <th scope="col" colspan="2">Location surcharges</th>
+                    <th scope="col" colspan="2">Additional </th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td colspan="2">
+                      <b>Changi Airport & Changi Air Freight Centre</b>
+                      <br>
+                      Fri – Sun: 5.00pm to midnight
+                      <br>
+                      At all other times
+                    </td>
+                    <td colspan="2">
+                      <br>
+                      $5.00
+                      <br>
+                      $3.00
+                    </td>
+                  </tr>
+                  <tr>
+                    <td colspan="2"><b>Seletar Airport</b></td>
+                    <td colspan="2">$3.00</td>
+                  </tr>
+                  <tr>
+                    <td colspan="2">
+                      <b>Marina Bay Sands</b>
+                      <br>
+                      Sun & Public Holidays*: 6.00am to 4.59pm
+                    </td>
+                    <td colspan="2">$3.00</td>
+                  </tr>
+                  <tr>
+                    <td colspan="2">
+                      <b>Resorts World Sentosa</b>
+                    </td>
+                    <td colspan="2">$3.00</td>
+                  </tr>
+
+                  <td colspan="2">
+                    <b>Singapore Expo Centre</b>
+                  </td>
+                  <td colspan="2">$2.00</td>
+                  </tr>
+                </tbody>
+              </table>
+
+              <table class="table table-striped">
+                <!--Public holiday-->
+                <thead>
+                  <tr class="table-primary">
+                    <th scope="col" colspan="4">Public holidays* in Singapore 2020</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td colspan="2">New Year's Day</td>
+                    <td colspan="2">Wed, 1 Jan 2020</td>
+                  </tr>
+                  <tr>
+                    <td colspan="2">Lunar New Year</td>
+                    <td colspan="2">25–26 Jan 2020</td>
+                  </tr>
+                  <tr>
+                    <td colspan="2">Good Friday</td>
+                    <td colspan="2">Fri, 10 Apr 2020</td>
+                  </tr>
+                  <tr>
+                    <td colspan="2">Labour Day</td>
+                    <td colspan="2">Fri, 1 May 2020</td>
+                  </tr>
+                  <tr>
+                    <td colspan="2">Vesak</td>
+                    <td colspan="2">Thu, 7 May 2020</td>
+                  </tr>
+                  <tr>
+                    <td colspan="2">Eid al-Fitr</td>
+                    <td colspan="2">23–24 May 2020</td>
+                  </tr>
+                  <tr>
+                    <td colspan="2">Singapore Polling Day Holiday</td>
+                    <td colspan="2">Fri, 10 Jul 2020</td>
+                  </tr>
+                  <tr>
+                    <td colspan="2">Eid al-Adha</td>
+                    <td colspan="2">Fri, 31 Jul 2020</td>
+                  </tr>
+                  </tr>
+                  <tr>
+                    <td colspan="2">National Day of Singapore</td>
+                    <td colspan="2">Mon, 10 Aug 20</td>
+                  </tr>
+                  <tr>
+                    <td colspan="2">Diwali</td>
+                    <td colspan="2">Sat, 14 Nov 2020</td>
+                  </tr>
+                  <tr>
+                    <td colspan="2">Christmas Day</td>
+                    <td colspan="2">Fri, 25 Dec 2020</td>
+                  </tr>
+                </tbody>
+              </table>
+
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-2"></div>
+
+    </div>
+
+    <div class="row" style="width: 70%;margin: auto;">
+      <!--Premier Taxi-->
+      <div class="col-4 my-2">
+        <div class="card">
+          <div class="inner">
+            <img class="card-img-top" src="../img/transport/premier.jpg" alt="Card image cap">
+          </div>
+          <div class="card-header" id="heading2">
+            <h5 class="mb-0" style="text-align: center;">
+              <button class="btn btn-link" data-toggle="collapse" data-target="#collapse2" aria-expanded="false"
+                aria-controls="collapse2">
+                <h3>Premier Taxis</h3>
+              </button>
+            </h5>
+          </div>
+
+          <div id="collapse2" class="collapse" aria-labelledby="heading2">
+            <div class="card-body">
+              <h4>Flag Down</h4>
+              <h5><i>$3 ~ $3.70</i></h5>
+              <hr>
+              <h4>Booking Fee</h4>
+              <h5>Current booking: <i>$4.50</i></h5>
+              <h5>Advance booking: <i>$8</i></h5>
+              <hr>
+              <h4>Contact Number</h4>
+              <h5><i>6363 6888</i></h5>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!--Prime Taxi-->
+      <div class="col-4 my-2">
+        <div class="card">
+          <div class="inner">
+            <img class="card-img-top" src="../img/transport/prime.jpg" alt="Card image cap">
+          </div>
+          <div class="card-header" id="heading3">
+            <h5 class="mb-0" style="text-align: center;">
+              <button class="btn btn-link" data-toggle="collapse" data-target="#collapse3" aria-expanded="false"
+                aria-controls="collapse3">
+                <h3>Prime Taxis</h3>
+              </button>
+            </h5>
+          </div>
+
+          <div id="collapse3" class="collapse" aria-labelledby="heading3">
+            <div class="card-body">
+              <h4>Flag Down</h4>
+              <h5><i>$3 ~ $3.40</i></h5>
+              <hr>
+              <h4>Booking Fee</h4>
+              <h5>Current booking: <i>$3.50</i></h5>
+              <h5>Advance booking: <i>$6</i></h5>
+              <hr>
+              <h4>Contact Number</h4>
+              <h5><i>6778 0808</i></h5>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!--City Cab Taxi-->
+      <div class="col-4">
+        <div class="card">
+          <div class="inner">
+            <img class="card-img-top" src="../img/transport/citycab.jpg" alt="Card image cap">
+          </div>
+          <div class="card-header" id="heading4">
+            <h5 class="mb-0" style="text-align: center;">
+              <button class="btn btn-link" data-toggle="collapse" data-target="#collapse4" aria-expanded="false"
+                aria-controls="collapse4">
+                <h3>City Cab Taxis</h3>
+              </button>
+            </h5>
+          </div>
+
+          <div id="collapse4" class="collapse" aria-labelledby="heading4">
+            <div class="card-body">
+              <h4>Flag Down</h4>
+              <h5><i>$3 ~ $3.70</i></h5>
+              <hr>
+              <h4>Booking Fee</h4>
+              <h5>Current booking: <i>$3.30</i></h5>
+              <h5>Advance booking: <i>$8</i></h5>
+              <hr>
+              <h4>Contact Number</h4>
+              <h5><i>6552 1111</i></h5>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+      <!--Comfort Taxi-->
+      <div class="col-4 my-2">
+        <div class="card">
+          <div class="inner">
+            <img class="card-img-top" src="../img/transport/comfort.jpg" alt="Card image cap" style="height:205px">
+          </div>
+          <div class="card-header" id="heading5">
+            <h5 class="mb-0" style="text-align: center;">
+              <button class="btn btn-link" data-toggle="collapse" data-target="#collapse5" aria-expanded="false"
+                aria-controls="collapse5">
+                <h3>Comfort Taxis</h3>
+              </button>
+            </h5>
+          </div>
+
+          <div id="collapse5" class="collapse" aria-labelledby="heading5">
+            <div class="card-body">
+              <h4>Flag Down</h4>
+              <h5><i>$3 ~ $3.70</i></h5>
+              <hr>
+              <h4>Booking Fee</h4>
+              <h5>Current booking: <i>$3.30</i></h5>
+              <h5>Advance booking: <i>$8</i></h5>
+              <hr>
+              <h4>Contact Number</h4>
+              <h5><i>6552 1111</i></h5>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!--Trans-Cab-->
+      <div class="col-4 my-2">
+        <div class="card">
+          <div class="inner">
+            <img class="card-img-top" src="../img/transport/TransCab.jpg" alt="Card image cap" style="height:205px">
+          </div>
+          <div class="card-header" id="heading6">
+            <h5 class="mb-0" style="text-align: center;">
+              <button class="btn btn-link" data-toggle="collapse" data-target="#collapse6" aria-expanded="false"
+                aria-controls="collapse6">
+                <h3>Trans-Cab</h3>
+              </button>
+            </h5>
+          </div>
+
+          <div id="collapse6" class="collapse" aria-labelledby="heading6">
+            <div class="card-body">
+              <h4>Flag Down</h4>
+              <h5><i>$3 ~ $3.90</i></h5>
+              <hr>
+              <h4>Booking Fee</h4>
+              <h5>Current booking: <i>$3.30</i></h5>
+              <h5>Advance booking: <i>$6.50</i></h5>
+              <hr>
+              <h4>Contact Number</h4>
+              <h5><i>6555 3333</i></h5>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!--SMRT Taxis-->
+      <div class="col-4 my-2">
+        <div class="card">
+          <div class="inner">
+            <img class="card-img-top" src="../img/transport/SMRT.jpg" alt="Card image cap">
+          </div>
+          <div class="card-header" id="heading7">
+            <h5 class="mb-0" style="text-align: center;">
+              <button class="btn btn-link" data-toggle="collapse" data-target="#collapse7" aria-expanded="false"
+                aria-controls="collapse7">
+                <h3>SMRT Taxis</h3>
+              </button>
+            </h5>
+          </div>
+
+          <div id="collapse7" class="collapse" aria-labelledby="heading7">
+            <div class="card-body">
+              <h4>Flag Down</h4>
+              <h5><i>$3 ~ $3.80</i></h5>
+              <hr>
+              <h4>Booking Fee</h4>
+              <h5>Current booking: <i>$3.30</i></h5>
+              <h5>Advance booking: <i>$8</i></h5>
+              <hr>
+              <h4>Contact Number</h4>
+              <h5><i>6555 8888</i></h5>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  </div>
+
+  <!-- MODAL  -->
+
+  <div class="wrapper">
+    <div id="popUp" class="popUp popup_hide">
+      <div class="popUp-content shadow">
+        <!-- <span class="close">&times;</span> -->
+        <!-- <p>Успей заказать! Только сегодня -  скидка 15%!</p> -->
+        <img src="https://www.epayment.com.ng/images/blog-wp-login-1200x400.png" alt="" class="popUp-img">
+        <p>Please login via Google to use SG Backpacking</p>
+        <button onclick="clickEventM()" class='login-modal-btn' onclick='this.blur()'><span>Login</span></button>
+
+      </div>
+    </div>
+  </div>
+
+
+
+
+
+
+
+
+  <!-- Footer -->
+  <div class="container-fluid" style="background-color: #2F4F4F !important; color: #A6A6A6;">
+    <div class="row">
+      <div class="d-flex flex-column align-items-center justify-content-center w-100">
+        <p class="pt-2 mb-1">Connect With Us:</p>
+        <div class="d-flex flex-row mb-3">
+          <a href="https://www.facebook.com/" class="mx-1"><img src="../img/base/facebook-3-xl.png" width="30"></a>
+          <a href="https://www.instagram.com/" class="mx-1"><img src="../img/base/instagram-xl.png" width="30"></a>
+          <a href="https://twitter.com/" class="mx-1"><img src="../img/base/twitter-3-xl.png" width="30"></a>
+        </div>
+        <p>Backpackers INC</p>
+        <p style="font-size: 13px;">21 Something Street Unit #01-01 S552069</p>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- CREATING CONNECTION -->
+  <!-- The core Firebase JS SDK is always required and must be listed first -->
+  <script src="https://www.gstatic.com/firebasejs/8.0.0/firebase-app.js"></script>
+
+  <!-- DATABASE SDK -->
+  <script src="https://www.gstatic.com/firebasejs/8.0.0/firebase-database.js"></script>
+  <!-- AUTHENTICATION SDK  -->
+  <script src="https://www.gstatic.com/firebasejs/8.0.0/firebase-auth.js"></script>
+
+
+  <script type="text/javascript" src="../js/transport.js"></script>
+
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+    integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous">
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+    integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous">
+  </script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"
+    integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous">
+  </script>
+
+  <script>
+    $(document).ready(function () {
+      var scroll_start = 0;
+      var startchange = $('.main');
+      var offset = startchange.offset();
+      if (startchange.length) {
+        $(document).scroll(function () {
+          scroll_start = $(this).scrollTop();
+          if (scroll_start > offset.top) {
+            $(".navbar").css('background-color', 'white');
+            $("#logo").attr('src', '../img/icons/logo-white.jpg')
+            $(".nav-link").css('color', '#2F4F4F')
+            $(".dropdown-menu").css('background-color', 'white')
+            $(".dropdown-item").css('color', '#2F4F4F')
+            $("label").css('color', '#2F4F4F')
+            $(".navbar-toggler").css('background-color', 'white')
+          } else {
+            $('.navbar').css('background-color', '#2F4F4F');
+            $("#logo").attr('src', '../img/icons/logo-grey.jpg')
+            $(".nav-link").css('color', '#D9D9D9')
+            $(".dropdown-menu").css('background-color', '#2F4F4F')
+            $(".dropdown-item").css('color', '#D9D9D9')
+            $("label").css('color', '#D9D9D9')
+            $(".navbar-toggler").css('background-color', '#2F4F4F')
+          }
+        });
+      }
+    });
+  </script>
+
+</body>
+
+</html>

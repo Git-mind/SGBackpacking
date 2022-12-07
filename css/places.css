@@ -1,0 +1,380 @@
+/* allow for smooth scrolling */
+* {
+  font-family: 'Montserrat', sans-serif;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+.jumbotron {
+  background-color: white;
+}
+
+.container-fluid {
+  background-color: white;
+}
+
+/* show shadow on hover  */
+.card-wrap {
+  transition: box-shadow .3s;
+  /* border-style:groove; */
+  /* border:solid black 4px */
+}
+
+.card-wrap:hover {
+  -webkit-box-shadow: -1px 9px 40px -12px rgba(0, 0, 0, 0.75);
+  -moz-box-shadow: -1px 9px 40px -12px rgba(0, 0, 0, 0.75);
+  box-shadow: -1px 9px 40px -12px rgba(0, 0, 0, 0.75);
+
+}
+
+/* animation for card images */
+.inner {
+  overflow: hidden;
+}
+
+.inner img {
+  transition: all 1.5s ease;
+}
+
+.inner:hover img {
+  transform: scale(1.1)
+}
+
+
+/* prevent bubbling of click event  */
+button>* {
+  pointer-events: none;
+}
+
+
+
+/* return-to-top button */
+#return-to-top {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background: rgb(0, 0, 0);
+  background: rgba(0, 0, 0, 0.7);
+  width: 50px;
+  height: 50px;
+  display: block;
+  text-decoration: none;
+  -webkit-border-radius: 35px;
+  -moz-border-radius: 35px;
+  border-radius: 35px;
+  display: none;
+  -webkit-transition: all 0.3s linear;
+  -moz-transition: all 0.3s ease;
+  -ms-transition: all 0.3s ease;
+  -o-transition: all 0.3s ease;
+  transition: all 0.3s ease;
+  z-index: 1000;
+}
+
+#return-to-top i {
+  color: #fff;
+  margin: 0;
+  position: relative;
+  left: 16px;
+  top: 13px;
+  font-size: 19px;
+  -webkit-transition: all 0.3s ease;
+  -moz-transition: all 0.3s ease;
+  -ms-transition: all 0.3s ease;
+  -o-transition: all 0.3s ease;
+  transition: all 0.3s ease;
+}
+
+#return-to-top:hover {
+  background: rgba(0, 0, 0, 0.9);
+}
+
+#return-to-top:hover i {
+  color: #fff;
+  top: 5px;
+}
+
+
+
+/* tabs */
+.tabs_wrap {
+  padding: 20px;
+
+
+}
+
+.tabs_wrap ul {
+  display: flex;
+  justify-content: center;
+  list-style-type: none;
+
+}
+
+.tabs_wrap ul li {
+  width: 160px;
+  text-align: center;
+  background: #e9ecf1;
+  padding: 13px 15px;
+  border-radius: 1px solid #c1c4c9;
+  transition: all 0.5s ease;
+  cursor: pointer;
+  font-size: 1rem;
+  font-weight: bold;
+  color: #2F4F4F;
+
+}
+
+.tabs_wrap ul li:first-child {
+  border-top-left-radius: 25px;
+  border-bottom-left-radius: 25px;
+}
+
+.tabs_wrap ul li:last-child {
+  border-top-right-radius: 25px;
+  border-bottom-right-radius: 25px;
+  border-right: 0;
+}
+
+.tabs_wrap ul li:hover,
+.tabs_wrap ul li.active {
+  font-size: 1rem;
+  font-weight: bold;
+  background: #00b894;
+  color: white;
+
+}
+
+.search {
+  width: 100%;
+  position: relative;
+  display: flex;
+}
+
+.searchTerm {
+  width: 100%;
+  border: 3px solid #00B894;
+  border-right: none;
+  border-radius: 5px 0 0 5px;
+  outline: none;
+  color: #2F4F4F;
+  padding-left: 10px;
+}
+
+.searchTerm:focus {
+  color: #2F4F4F;
+}
+
+.searchButton {
+  width: 40px;
+  height: 36px;
+  border: 1px solid #00B894;
+  background: #00B894;
+  text-align: center;
+  color: #fff;
+  border-radius: 0 5px 5px 0;
+  cursor: pointer;
+  font-size: 20px;
+}
+
+/*Resize the wrap to see the search bar change!*/
+.wrap {
+  width: 70%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.read {
+  color: black;
+  background-color: transparent;
+  text-decoration: underline;
+
+}
+
+.reviews-div {
+  border: none;
+}
+
+.footer-div {
+  background-color:
+}
+
+.card-block {
+  font-size: 14px;
+}
+
+.rating-div {
+  bottom: 0;
+}
+
+
+
+/* modal css */
+* {
+  line-height: 1.5em;
+}
+
+.wrapper {
+  width: 80%;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.title {
+  margin-bottom: 0.8em;
+}
+
+.content {
+  width: 70%;
+  font-size: 0.8em;
+  margin-bottom: 3em;
+}
+
+.button-popup {
+  text-decoration: none;
+  padding: 1em 4em;
+  border: 1px solid black;
+  color: black;
+}
+
+.button-popup:hover {
+  text-decoration: none;
+  padding: 1em 4em;
+  border: 1px solid black;
+  background-color: rgba(74, 74, 74, 0.6);
+  color: white;
+}
+
+.popUp {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  z-index: 1;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%;
+  height: 100%;
+
+  overflow: auto;
+  background-color: rgb(0, 0, 0);
+  background-color: rgba(0, 0, 0, 0.4);
+}
+
+.popup_hide {
+  display: none;
+}
+
+.popUp-content {
+  padding: 1em;
+  background-color: #fefefe;
+  /* border: 0.2em solid #8c8c8c; */
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 200px;
+  height: 200px;
+  border-radius: 5%;
+
+}
+
+.popUp-content p {
+  text-align: center;
+}
+
+.popUp-img {
+  width: 100%;
+}
+
+@media (max-width: 768px) {
+  .popUp-content {
+    width: 85vw;
+  }
+}
+
+.close {
+  color: #9e9e9e;
+  align-self: flex-end;
+  font-size: 1.75em;
+  font-weight: 700;
+}
+
+.close:hover,
+.close:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.call-back {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-end;
+  margin-top: 1em;
+  max-width: 70vw;
+}
+
+
+
+/* 
+login modal button */
+.login-modal-btn {
+  /* border-radius: 4px; */
+  /* background-color: #385e5e; */
+  border: none;
+  color: #2f4f4e;
+  background-color: white;
+  text-align: center;
+  font-size: 28px;
+  /* padding: 20px; */
+  width: 100%;
+  transition: all 0.5s;
+  cursor: pointer;
+  /* margin: 5px; */
+
+}
+
+.login-modal-btn:focus {
+  outline: none
+}
+
+
+.login-modal-btn span {
+  cursor: pointer;
+  display: inline-block;
+  position: relative;
+  transition: 0.5s;
+}
+
+.login-modal-btn span:after {
+  content: '\00bb';
+  position: absolute;
+  opacity: 0;
+  top: 0;
+  right: -20px;
+  transition: 0.5s;
+}
+
+.login-modal-btn:hover span {
+  padding-right: 25px;
+  color: #ff5352
+}
+
+.login-modal-btn:hover span:after {
+  opacity: 1;
+  right: 0;
+  color: #ff5352
+}
